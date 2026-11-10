@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SWAB Event Day Explorer</title>
-<meta name="description" content="Shop with a Bulldawg's event days, replayed from the event sheet's own records, so each year is planned on what really happened.">
+<meta name="description" content="SWAB event days, year by year.">
 <meta name="robots" content="noindex">
 <style>
   :root { --green:#00AB51; --green-soft:#e6f6ee; --ink:#1b1f1d; --muted:#5d6661; --bg:#f7f8f7; --card:#fff; --line:#e3e6e4; }
@@ -15,7 +15,7 @@
   body { margin:0; font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif; background:var(--bg); color:var(--ink); }
   main { max-width:720px; margin:0 auto; padding:48px 16px 64px; }
   .kicker { color:var(--green); font-weight:700; letter-spacing:.04em; text-transform:uppercase; font-size:.8rem; margin:0 0 6px; }
-  h1 { font-size:2rem; line-height:1.2; margin:0 0 16px; }
+  h1 { font-size:2rem; line-height:1.2; margin:0 0 16px; color:var(--green); }
   h2 { font-size:1.15rem; margin:40px 0 12px; }
   p { margin:0 0 14px; }
   .lede { font-size:1.12rem; }
@@ -43,56 +43,37 @@
 </head>
 <body>
 <main>
-  <p class="kicker">Shop with a Bulldawg &middot; Event Day Explorer</p>
-  <h1>Every event day happens once. This is how we learn from it.</h1>
-  <p class="lede">Each year Shop with a Bulldawg gets one day to do it right: hundreds of kids,
-  mentors and families moving through check-in, matching, shopping and checkout.
-  When it is over, all that is usually left is what people remember.</p>
-
-  <div class="why">
-    <p><strong>Starting in 2026, the day keeps its own records.</strong> The event sheet that ran
-    check-in, matching and checkout logged every step as it happened. This explorer replays that
-    record, minute by minute, so we can see what actually happened, not what we think happened.</p>
-    <p>Each year adds another day to compare, so planning gets a little smarter every year.</p>
-  </div>
-
-  <h2>Questions it helps answer</h2>
-  <ul class="qs">
-    <li>When did kids and mentors really arrive, and did each shift have enough mentors?</li>
-    <li>Where did people wait, for how long, and when did lines form?</li>
-    <li>How long did checkout take once a parent arrived, and what slowed it down?</li>
-    <li>Which stations were busiest, and where did people have to step in?</li>
-  </ul>
-
-  <h2>Event days</h2>
+  <h1>SWAB Event Day Explorer</h1>
+  <p class="lede">We only get one shot at event day each year. 2026 was the first year we ran it on our own
+  check-in and checkout software, so for the first time we have a record of how the day actually went.</p>
+  <p>This site lets you go back through that day. Use it when planning the next one: how many mentors each
+  shift really needs, when the lines started to build, where kids and mentors ended up waiting. We'll add
+  each new event day here so we can compare year to year.</p>
 
   <section class="year">
-    <div class="year-head"><b>2026</b><span class="muted">Sunday, 8 November 2026 &middot; first year recorded</span></div>
+    <div class="year-head"><b>2026</b><span class="muted">Sunday, November 8</span></div>
     <div class="stats">
       <div><strong>423</strong>kids</div>
       <div><strong>275</strong>families</div>
       <div><strong>290</strong>shopping groups</div>
     </div>
-    <p class="muted">Eight chapters, each one a part of the day:</p>
+    <p class="muted">What you can look through:</p>
     <ul class="chapters">
-      <li><b>The Day at a Glance</b><span>The whole day on one screen, doors to the last family home.</span></li>
-      <li><b>Arrivals and Matching</b><span>Who showed up, when, and how fast they were matched.</span></li>
+      <li><b>The Day at a Glance</b><span>The whole day on one screen.</span></li>
+      <li><b>Arrivals and Matching</b><span>Who showed up when, and how fast they got matched.</span></li>
       <li><b>Out Shopping</b><span>How long kids were out, and with how many mentors.</span></li>
-      <li><b>Checkout</b><span>Parents arriving, kids released, and the lines in between.</span></li>
-      <li><b>Waits</b><span>Where kids and mentors sat waiting, and for how long.</span></li>
-      <li><b>The Team</b><span>What each station did, and where people stepped in.</span></li>
-      <li><b>Mentors</b><span>How mentors spent their day, from pairing to release.</span></li>
-      <li><b>Shifts and Planning</b><span>The shift plan against when people really came.</span></li>
+      <li><b>Checkout</b><span>Parents arriving, kids going home, and the lines in between.</span></li>
+      <li><b>Waits</b><span>Where people waited and for how long.</span></li>
+      <li><b>The Team</b><span>What each station laptop did all day.</span></li>
+      <li><b>Mentors</b><span>A mentor's day from pairing to release.</span></li>
+      <li><b>Shifts and Planning</b><span>The shift plan next to when people really came.</span></li>
     </ul>
-    <a class="open" href="2026/">Open 2026 &rarr;</a>
-    <p class="how">Press play or drag the clock at the bottom to move through the day. Hover anything
-    to see what it is; press <b>i</b> on a tile to learn how to read it. Works best on a laptop.</p>
+    <a class="open" href="2026/">Open 2026</a>
+    <p class="how">Drag the clock at the bottom to move through the day. Hover over anything to see what it is.
+    Best on a laptop.</p>
   </section>
 
-  <div class="next">2027 will appear here after next year's event day.</div>
-
-  <footer>Counts and times only: no names, phone numbers or contact details are in these pages.
-  Made by SWAB's tech team from the event sheet's records.</footer>
+  <div class="next">2027 goes here after next year's event.</div>
 </main>
 </body>
 </html>
