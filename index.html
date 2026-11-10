@@ -34,6 +34,12 @@
   .chapters li { font-size:.92rem; }
   .chapters b { display:block; }
   .chapters span { color:var(--muted); }
+  ol.steps { list-style:none; counter-reset:s; margin:0 0 20px; padding:0; display:grid; gap:10px; }
+  ol.steps li { counter-increment:s; position:relative; padding:10px 12px 10px 46px; background:var(--green-soft); border-radius:8px; font-size:.92rem; }
+  ol.steps li::before { content:counter(s); position:absolute; left:12px; top:10px; width:24px; height:24px; border-radius:50%;
+    background:var(--green); color:#fff; font-weight:700; font-size:.85rem; display:grid; place-items:center; }
+  ol.steps b { display:block; }
+  ol.steps span { color:var(--muted); }
   a.open { display:inline-block; background:var(--green); color:#fff; font-weight:700; text-decoration:none; padding:11px 18px; border-radius:8px; }
   a.open:hover { filter:brightness(.95); }
   .how { font-size:.9rem; color:var(--muted); margin-top:12px; }
@@ -67,9 +73,9 @@
   <section class="year">
     <div class="year-head"><b>2026</b><span class="muted">Sunday, November 8 &middot; first year</span></div>
     <div class="stats">
-      <div><strong>423</strong>kids</div>
-      <div><strong>275</strong>families</div>
-      <div><strong>290</strong>shopping groups</div>
+      <div><strong>423</strong>kids came (of 455 signed up)</div>
+      <div><strong>290</strong>mentor pairs</div>
+      <div><strong>275</strong>families picked up</div>
     </div>
     <p class="muted">What you can look through:</p>
     <ul class="chapters">
@@ -82,9 +88,16 @@
       <li><b>Mentors</b><span>A mentor's day from pairing to release.</span></li>
       <li><b>Shifts and Planning</b><span>The shift plan next to when people really came.</span></li>
     </ul>
+    <p class="muted">How to get around:</p>
+    <ol class="steps">
+      <li><b>Pick Board or Story</b><span>Board shows every chart at once. Story walks you through the day one step at a time (Back / Next).</span></li>
+      <li><b>Play with the clock</b><span>The bar at the bottom runs the day. Press Play, change the speed, or drag to any time. Every chart moves with it.</span></li>
+      <li><b>Hover anything</b><span>Every dot, line and number tells you what it is when you hover over it.</span></li>
+      <li><b>Click to dig in</b><span>Click a kid, group or family and it lights up in every chart. Click empty space to open that chart big. Esc to go back.</span></li>
+      <li><b>Not sure what you're looking at?</b><span>Hit <b>i</b> on any chart for how to read it and what to notice.</span></li>
+    </ol>
     <a class="open" href="2026/">Open 2026 &rarr;</a>
-    <p class="how">Drag the clock at the bottom to move through the day. Hover over anything to see what
-    it is, and press <b>i</b> on a tile to see how to read it. Best on a laptop.</p>
+    <p class="how">Best on a laptop.</p>
   </section>
 
   <div class="next">2027 goes here after next year's event.</div>
