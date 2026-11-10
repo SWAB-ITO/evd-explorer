@@ -12,189 +12,165 @@
     :root { --green-soft:#12301f; --ink:#eef1ef; --muted:#a3ada7; --bg:#121513; --card:#1b1f1d; --line:#2c322e; }
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior:smooth; }
   body { margin:0; font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif; background:var(--bg); color:var(--ink); }
-  main { max-width:1080px; margin:0 auto; padding:48px 16px 72px; }
   img { max-width:100%; display:block; }
-  .kicker { color:var(--green); font-weight:700; letter-spacing:.04em; text-transform:uppercase; font-size:.8rem; margin:0 0 6px; }
-  h1 { font-size:2.2rem; line-height:1.15; margin:0 0 16px; max-width:820px; }
-  h2 { font-size:1.25rem; margin:48px 0 6px; }
-  h2 + .sub { margin-bottom:16px; }
-  p { margin:0 0 14px; }
-  .lede { font-size:1.15rem; max-width:820px; }
-  .muted, .sub { color:var(--muted); }
-  .why { background:var(--green-soft); border-left:5px solid var(--green); border-radius:8px; padding:16px 20px; margin:24px 0 0; max-width:820px; }
-  .why p:last-child { margin:0; }
+  a { color:inherit; }
+  .wrap { max-width:1080px; margin:0 auto; padding:0 16px; }
 
-  .day { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px 24px 16px; }
-  .track { position:relative; height:170px; margin:0 70px; }
-  .track .rail { position:absolute; left:0; right:0; top:84px; height:4px; border-radius:2px;
-    background:linear-gradient(90deg, var(--green) 0%, var(--amber) 30%, var(--amber) 62%, var(--green) 70%, var(--green) 100%); opacity:.6; }
-  .m { position:absolute; width:150px; margin-left:-75px; text-align:center; font-size:.82rem; line-height:1.3; }
-  .m::after { content:""; position:absolute; left:50%; width:12px; height:12px; margin-left:-6px; border-radius:50%; background:var(--card); border:3px solid var(--green); }
-  .m.up { bottom:94px; } .m.up::after { bottom:-24px; }
-  .m.down { top:98px; } .m.down::after { top:-20px; }
-  .m.warn::after { border-color:var(--amber); }
-  .m b { display:block; font-size:.95rem; }
-  .ticks { position:relative; height:18px; margin:2px 70px 0; font-size:.75rem; color:var(--muted); }
-  .ticks span { position:absolute; transform:translateX(-50%); }
-  .daylist { display:none; margin:0; padding:0; list-style:none; }
-  .daylist li { display:flex; gap:12px; padding:6px 0; border-bottom:1px solid var(--line); font-size:.92rem; }
-  .daylist li b { min-width:52px; }
+  /* top bar */
+  header.top { position:sticky; top:0; z-index:5; background:color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+  header.top .wrap { display:flex; align-items:center; justify-content:space-between; gap:16px; height:56px; }
+  .brand { font-weight:800; text-decoration:none; }
+  .brand span { color:var(--green); }
+  nav { display:flex; gap:20px; font-size:.92rem; }
+  nav a { text-decoration:none; color:var(--muted); }
+  nav a:hover { color:var(--ink); }
 
-  .insights { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px; }
-  .ins { background:var(--card); border:1px solid var(--line); border-top:4px solid var(--green); border-radius:10px; padding:16px 18px; }
-  .ins.warn { border-top-color:var(--amber); }
-  .ins .big { font-size:1.9rem; font-weight:800; line-height:1.1; }
-  .ins .what { font-weight:600; margin:2px 0 8px; }
-  .ins p { font-size:.92rem; color:var(--muted); margin:0; }
+  /* hero */
+  .hero { padding:64px 0 24px; }
+  .kicker { color:var(--green); font-weight:700; letter-spacing:.04em; text-transform:uppercase; font-size:.8rem; margin:0 0 8px; }
+  h1 { font-size:2.5rem; line-height:1.12; margin:0 0 18px; max-width:820px; }
+  .lede { font-size:1.15rem; max-width:780px; margin:0 0 14px; }
+  .why { background:var(--green-soft); border-left:5px solid var(--green); border-radius:8px; padding:16px 20px; margin:22px 0 0; max-width:780px; }
+  .why p { margin:0 0 10px; } .why p:last-child { margin:0; }
+  .ctas { display:flex; gap:12px; flex-wrap:wrap; margin-top:26px; }
+  .btn { display:inline-block; font-weight:700; text-decoration:none; padding:12px 20px; border-radius:8px; }
+  .btn.primary { background:var(--green); color:#fff; }
+  .btn.ghost { border:1px solid var(--line); background:var(--card); }
+  .btn:hover { filter:brightness(.96); }
 
-  .year { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:24px; margin-top:12px; }
-  .year-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:6px; }
-  .year-head b { font-size:1.6rem; }
-  .stats { display:flex; gap:28px; flex-wrap:wrap; margin:10px 0 20px; }
-  .stats div { font-size:.85rem; color:var(--muted); }
-  .stats strong { display:block; font-size:1.5rem; color:var(--ink); }
-  h3 { font-size:1rem; margin:22px 0 10px; }
-  .chapters { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:8px 20px; margin:0; padding:0; list-style:none; }
-  .chapters li { font-size:.92rem; }
-  .chapters b { display:block; }
-  .chapters span { color:var(--muted); }
+  section.block { padding:56px 0 8px; scroll-margin-top:60px; }
+  h2 { font-size:1.6rem; margin:0 0 6px; }
+  .sub { color:var(--muted); margin:0 0 22px; max-width:760px; }
+  .muted { color:var(--muted); }
 
+  /* chapters */
+  .chapters { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:12px; margin:0; padding:0; list-style:none; }
+  .chapters li { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+  .chapters b { display:block; margin-bottom:2px; }
+  .chapters span { color:var(--muted); font-size:.93rem; }
+  .chapters .q { display:block; margin-top:8px; font-size:.85rem; color:var(--green); font-weight:600; }
+
+  /* how to get around */
   .how { display:grid; gap:14px; margin:0; padding:0; list-style:none; counter-reset:s; }
-  .how li { counter-increment:s; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.35fr); gap:20px; align-items:center;
-    background:var(--green-soft); border-radius:10px; padding:16px; }
+  .how li { counter-increment:s; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.4fr); gap:24px; align-items:center;
+    background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; }
   .how li.textonly { grid-template-columns:1fr; }
-  .how .txt { position:relative; padding-left:40px; }
-  .how .txt::before { content:counter(s); position:absolute; left:0; top:0; width:28px; height:28px; border-radius:50%;
+  .how .txt { position:relative; padding-left:42px; }
+  .how .txt::before { content:counter(s); position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%;
     background:var(--green); color:#fff; font-weight:700; display:grid; place-items:center; }
-  .how .txt > b { display:block; font-size:1.02rem; margin-bottom:4px; }
-  .how .txt span { color:var(--muted); font-size:.93rem; }
+  .how .txt > b { display:block; font-size:1.05rem; margin-bottom:4px; }
+  .how .txt span { color:var(--muted); font-size:.95rem; }
   .how img { border-radius:8px; border:1px solid var(--line); background:var(--shot); }
   .how .pair { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .how .pair figure { margin:0; } .how .pair figcaption { font-size:.8rem; color:var(--muted); margin-top:4px; text-align:center; }
 
-  a.open { display:inline-block; background:var(--green); color:#fff; font-weight:700; text-decoration:none; padding:12px 22px; border-radius:8px; margin-top:22px; }
-  a.open:hover { filter:brightness(.95); }
-  .note { font-size:.88rem; color:var(--muted); margin-top:10px; }
-  .next { border:1px dashed var(--line); border-radius:12px; padding:16px 22px; margin-top:12px; color:var(--muted); }
+  /* year cards */
+  .years { display:grid; grid-template-columns:minmax(0,2.2fr) minmax(0,1fr); gap:14px; align-items:start; }
+  .year { background:var(--card); border:1px solid var(--line); border-top:5px solid var(--green); border-radius:12px; padding:22px; }
+  .year-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; }
+  .year-head b { font-size:1.6rem; }
+  .stats { display:flex; gap:22px; flex-wrap:wrap; margin:12px 0 18px; }
+  .stats div { font-size:.8rem; color:var(--muted); }
+  .stats strong { display:block; font-size:1.25rem; color:var(--ink); }
+  .year h4 { font-size:.8rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin:18px 0 8px; }
 
-  @media (max-width: 760px) {
-    h1 { font-size:1.7rem; }
-    .track, .ticks { display:none; }
-    .daylist { display:block; }
+  .track { position:relative; height:118px; margin:0 48px; }
+  .track .rail { position:absolute; left:0; right:0; top:57px; height:3px; border-radius:2px;
+    background:linear-gradient(90deg, var(--green) 0%, var(--amber) 30%, var(--amber) 62%, var(--green) 70%, var(--green) 100%); opacity:.6; }
+  .m { position:absolute; width:116px; margin-left:-58px; text-align:center; font-size:.72rem; line-height:1.25; color:var(--muted); }
+  .m::after { content:""; position:absolute; left:50%; width:10px; height:10px; margin-left:-5px; border-radius:50%; background:var(--card); border:2px solid var(--green); }
+  .m.up { bottom:66px; } .m.up::after { bottom:-17px; }
+  .m.down { top:68px; } .m.down::after { top:-15px; }
+  .m.warn::after { border-color:var(--amber); }
+  .m b { display:block; color:var(--ink); font-size:.8rem; }
+  .daylist { display:none; margin:0; padding:0; list-style:none; }
+  .daylist li { display:flex; gap:10px; padding:4px 0; border-bottom:1px solid var(--line); font-size:.85rem; }
+  .daylist li b { min-width:46px; }
+
+  .finds { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:8px 18px; margin:0; padding:0; list-style:none; }
+  .finds li { font-size:.85rem; color:var(--muted); padding-left:10px; border-left:3px solid var(--green); }
+  .finds li.warn { border-left-color:var(--amber); }
+  .finds b { display:block; font-size:1.05rem; color:var(--ink); }
+  .year .btn { margin-top:20px; }
+
+  .soon { border:1px dashed var(--line); border-radius:12px; padding:22px; color:var(--muted); }
+  .soon b { display:block; font-size:1.6rem; color:var(--ink); opacity:.5; margin-bottom:6px; }
+  .soon p { margin:0; font-size:.92rem; }
+
+  .end { padding:56px 0 72px; }
+
+  @media (max-width: 820px) {
+    nav { display:none; }
+    h1 { font-size:1.8rem; }
     .how li { grid-template-columns:1fr; }
-    .how .pair { grid-template-columns:1fr; }
+    .years { grid-template-columns:1fr; }
+    .track { display:none; }
+    .daylist { display:block; }
   }
 </style>
 </head>
 <body>
-<main>
-  <p class="kicker">SWAB &middot; Event Day Explorer</p>
-  <h1>We only get one shot at event day each year.</h1>
-  <p class="lede">Hundreds of kids, mentors and parents go through check-in, matching, shopping and
-  checkout in a single day. Once it's over, we usually only have what people remember.</p>
-
-  <div class="why">
-    <p><strong>2026 was the first year we ran event day on our own software.</strong> Every check-in,
-    match and pickup was saved as it happened, so now we can go back and see how the day actually went.</p>
-    <p>Each year we'll add the new event day here, so we can plan the next one off real numbers.</p>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><span>SWAB</span> Event Day Explorer</a>
+    <nav>
+      <a href="#inside">What's inside</a>
+      <a href="#how">How to use it</a>
+      <a href="#years">Event days</a>
+    </nav>
   </div>
+</header>
 
-  <h2>2026 in one line</h2>
-  <p class="sub">The moments the day turned on. Amber is when the lines were at their worst.</p>
-  <div class="day">
-    <div class="track">
-      <div class="rail"></div>
-      <div class="m up"   style="left:5.7%"><b>8:30</b>Doors open</div>
-      <div class="m down" style="left:23.8%"><b>10:05</b>Mentor rush</div>
-      <div class="m up warn" style="left:33.3%"><b>10:55</b>58 mentor pairs waiting for kids</div>
-      <div class="m down warn" style="left:44%"><b>11:51</b>63 kids waiting for a group</div>
-      <div class="m up warn" style="left:58.5%"><b>1:00 &ndash; 1:07</b>Checkout opens. Line hits 27 families</div>
-      <div class="m down" style="left:89.1%"><b>3:48</b>Release rush</div>
-      <div class="m up"   style="left:99.6%"><b>4:43</b>Last family home</div>
+<main class="wrap">
+  <div class="hero">
+    <h1>We only get one shot at event day each year.</h1>
+    <p class="lede">Hundreds of kids, mentors and parents go through check-in, matching, shopping and
+    checkout in a single day. Once it's over, we usually only have what people remember.</p>
+    <div class="why">
+      <p><strong>Starting in 2026, we run event day on our own software.</strong> Every check-in, match and
+      pickup is saved as it happens, so afterwards we can go back and see how the day actually went.</p>
+      <p>Each explorer replays one event day, minute by minute. A new one gets added every year, so we can
+      plan the next event off real numbers and see what changed.</p>
     </div>
-    <div class="ticks"><span style="left:0%">8 am</span><span style="left:22.9%">10</span><span style="left:45.7%">12 pm</span><span style="left:68.6%">2</span><span style="left:91.4%">4</span></div>
-    <ul class="daylist">
-      <li><b>8:30</b>Doors open</li>
-      <li><b>10:05</b>Mentor rush</li>
-      <li><b>10:55</b>58 mentor pairs waiting for kids</li>
-      <li><b>11:51</b>63 kids waiting for a group</li>
-      <li><b>1:00</b>Checkout opens. Line hits 27 families at 1:07</li>
-      <li><b>3:48</b>Release rush</li>
-      <li><b>4:43</b>Last family home</li>
-    </ul>
-  </div>
-
-  <h2>What 2026 showed us</h2>
-  <p class="sub">A few things you can see straight away. The explorer has plenty more.</p>
-  <div class="insights">
-    <div class="ins warn">
-      <div class="big">9 min</div>
-      <div class="what">Typical wait for a kid to get a group</div>
-      <p>At 9 am, half the kids had a group within 5 minutes. By 10 am only 16% did, and the line peaked at 63 kids at 11:51.</p>
-    </div>
-    <div class="ins warn">
-      <div class="big">19 min</div>
-      <div class="what">Typical wait for a mentor pair to get a kid</div>
-      <p>Kids and mentors took turns waiting. Mentors spent 164 hours waiting in total, kids 73.</p>
-    </div>
-    <div class="ins">
-      <div class="big">6 min</div>
-      <div class="what">Typical checkout, from text to release</div>
-      <p>The worst line (27 families at 1:07) was parents waiting for groups to walk back. Texting mentors sooner would help more than extra laptops.</p>
-    </div>
-    <div class="ins">
-      <div class="big">3.8 hrs</div>
-      <div class="what">Typical time a kid was out shopping</div>
-      <p>From getting a group to going home. 417 of the 423 kids have a recorded home time.</p>
-    </div>
-    <div class="ins warn">
-      <div class="big">118</div>
-      <div class="what">Times someone had to step in</div>
-      <p>41 kids typed in by hand, 51 mentor fixes, 24 pickup edge cases and 2 phones added.</p>
-    </div>
-    <div class="ins">
-      <div class="big">1.37</div>
-      <div class="what">Mentors per kid at noon</div>
-      <p>Mentor shifts came in waves, so groups formed in bursts instead of a steady flow.</p>
+    <div class="ctas">
+      <a class="btn primary" href="2026/">Open the latest: 2026 &rarr;</a>
+      <a class="btn ghost" href="#how">How to use it</a>
     </div>
   </div>
 
-  <h2>Event days</h2>
-
-  <section class="year">
-    <div class="year-head"><b>2026</b><span class="muted">Sunday, November 8 &middot; first year</span></div>
-    <div class="stats">
-      <div><strong>423</strong>kids came (455 signed up)</div>
-      <div><strong>580</strong>mentors</div>
-      <div><strong>290</strong>shopping groups</div>
-      <div><strong>275</strong>families picked up</div>
-    </div>
-
-    <h3>What you can look through</h3>
+  <section class="block" id="inside">
+    <h2>What's inside every explorer</h2>
+    <p class="sub">Every year has the same eight chapters, so you can line years up against each other.</p>
     <ul class="chapters">
-      <li><b>The Day at a Glance</b><span>The whole day on one screen.</span></li>
-      <li><b>Arrivals and Matching</b><span>Who showed up when, and how fast they got matched.</span></li>
-      <li><b>Out Shopping</b><span>How long kids were out, and with how many mentors.</span></li>
-      <li><b>Checkout</b><span>Parents arriving, kids going home, and the lines in between.</span></li>
-      <li><b>Waits</b><span>Where people waited and for how long.</span></li>
-      <li><b>The Team</b><span>What each station laptop did all day.</span></li>
-      <li><b>Mentors</b><span>A mentor's day from pairing to release.</span></li>
-      <li><b>Shifts and Planning</b><span>The shift plan next to when people really came.</span></li>
+      <li><b>The Day at a Glance</b><span>The whole day on one screen.</span><span class="q">How did the day go overall?</span></li>
+      <li><b>Arrivals and Matching</b><span>Who showed up when, and how fast they got matched.</span><span class="q">Did kids wait long for a group?</span></li>
+      <li><b>Out Shopping</b><span>How long kids were out, and with how many mentors.</span><span class="q">How long does shopping really take?</span></li>
+      <li><b>Checkout</b><span>Parents arriving, kids going home, and the lines in between.</span><span class="q">Where did checkout back up?</span></li>
+      <li><b>Waits</b><span>Where people waited and for how long.</span><span class="q">Who was stuck waiting, and when?</span></li>
+      <li><b>The Team</b><span>What each station laptop did all day.</span><span class="q">Which stations were busiest?</span></li>
+      <li><b>Mentors</b><span>A mentor's day from pairing to release.</span><span class="q">How was the day for mentors?</span></li>
+      <li><b>Shifts and Planning</b><span>The shift plan next to when people really came.</span><span class="q">Did the shifts match reality?</span></li>
     </ul>
+  </section>
 
-    <h3>How to get around</h3>
+  <section class="block" id="how">
+    <h2>How to use it</h2>
+    <p class="sub">Every explorer works the same way. Pictures below are from 2026.</p>
     <ol class="how">
       <li>
-        <div class="txt"><b>Board or Story</b><span>Board puts every chart on one page. Story walks you through the day
-          one step at a time with Back and Next. Switch between them in the bottom right.</span></div>
+        <div class="txt"><b>Pick Board or Story</b><span>Board puts every chart on one page to dig through. Story walks you
+          through the day one step at a time with Back and Next. Switch between them in the bottom right.
+          Start with Story if it's your first time.</span></div>
         <div class="pair">
-          <img src="img/2026-board.jpg" alt="The Board: every chart on one page" loading="lazy">
-          <img src="img/2026-story.jpg" alt="The Story: one step of the day at a time" loading="lazy">
+          <figure><img src="img/2026-board.jpg" alt="The Board: every chart on one page" loading="lazy"><figcaption>Board</figcaption></figure>
+          <figure><img src="img/2026-story.jpg" alt="The Story: one step of the day at a time" loading="lazy"><figcaption>Story</figcaption></figure>
         </div>
       </li>
       <li>
         <div class="txt"><b>Play with the clock</b><span>The bar at the bottom runs the day. Press Play, change the speed,
-          or drag to any time. The orange marks jump to the big moments. Every chart moves with it.</span></div>
+          or drag to any time. The orange marks jump straight to the big moments. Every chart moves with it.</span></div>
         <img src="img/2026-clock.jpg" alt="The clock bar with Play, speed, the timeline and its marks" loading="lazy">
       </li>
       <li>
@@ -203,20 +179,69 @@
       </li>
       <li class="textonly">
         <div class="txt"><b>Click to dig in</b><span>Click a kid, group or family and it lights up in every chart.
-          Click a dial for more detail. Esc to go back.</span></div>
+          Click a dial for more detail. Press Esc to go back.</span></div>
       </li>
       <li>
         <div class="txt"><b>Hit i when you're not sure</b><span>Every chart has an <b>i</b> in its corner. It explains how to
-          read it and what's worth noticing, with times you can click to jump to.</span></div>
+          read the chart and what's worth noticing, with times you can click to jump to.</span></div>
         <img src="img/2026-info.jpg" alt="A chart with How to read it and What to notice open" loading="lazy">
       </li>
     </ol>
-
-    <a class="open" href="2026/">Open 2026 &rarr;</a>
-    <p class="note">Best on a laptop.</p>
   </section>
 
-  <div class="next">2027 goes here after next year's event.</div>
+  <section class="block end" id="years">
+    <h2>Event days</h2>
+    <p class="sub">Pick a year to open it.</p>
+    <div class="years">
+      <article class="year">
+        <div class="year-head"><b>2026</b><span class="muted">Sunday, November 8 &middot; first year recorded</span></div>
+        <div class="stats">
+          <div><strong>423</strong>kids (455 signed up)</div>
+          <div><strong>580</strong>mentors</div>
+          <div><strong>290</strong>groups</div>
+          <div><strong>275</strong>families</div>
+        </div>
+
+        <h4>The day</h4>
+        <div class="track">
+          <div class="rail"></div>
+          <div class="m up"   style="left:5.7%"><b>8:30</b>Doors open</div>
+          <div class="m down" style="left:23.8%"><b>10:05</b>Mentor rush</div>
+          <div class="m up warn" style="left:33.3%"><b>10:55</b>58 pairs waiting</div>
+          <div class="m down warn" style="left:44%"><b>11:51</b>63 kids waiting</div>
+          <div class="m up warn" style="left:58.5%"><b>1:07</b>27 families in line</div>
+          <div class="m down" style="left:89.1%"><b>3:48</b>Release rush</div>
+          <div class="m up"   style="left:99.6%"><b>4:43</b>Last family home</div>
+        </div>
+        <ul class="daylist">
+          <li><b>8:30</b>Doors open</li>
+          <li><b>10:05</b>Mentor rush</li>
+          <li><b>10:55</b>58 mentor pairs waiting</li>
+          <li><b>11:51</b>63 kids waiting</li>
+          <li><b>1:07</b>27 families in the checkout line</li>
+          <li><b>3:48</b>Release rush</li>
+          <li><b>4:43</b>Last family home</li>
+        </ul>
+
+        <h4>What stood out</h4>
+        <ul class="finds">
+          <li class="warn"><b>9 min</b>typical kid wait for a group. Only 16% got one within 5 min by 10 am.</li>
+          <li class="warn"><b>19 min</b>typical mentor pair wait for a kid. Both sides took turns waiting.</li>
+          <li><b>6 min</b>typical checkout. The long line was groups walking back, not the desks.</li>
+          <li><b>3.8 hrs</b>typical time a kid was out shopping.</li>
+          <li class="warn"><b>118</b>times someone stepped in by hand.</li>
+          <li><b>1.37</b>mentors per kid at noon.</li>
+        </ul>
+
+        <a class="btn primary" href="2026/">Open 2026 &rarr;</a>
+      </article>
+
+      <div class="soon">
+        <b>2027</b>
+        <p>Added after next year's event day.</p>
+      </div>
+    </div>
+  </section>
 </main>
 </body>
 </html>
