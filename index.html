@@ -4,29 +4,95 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SWAB Event Day Explorer</title>
+<meta name="description" content="Shop with a Bulldawg's event days, replayed from the event sheet's own records, so each year is planned on what really happened.">
 <meta name="robots" content="noindex">
 <style>
-  :root { --green:#00AB51; --ink:#1b1f1d; --muted:#5d6661; --bg:#f7f8f7; --card:#fff; --line:#e3e6e4; }
-  @media (prefers-color-scheme: dark) { :root { --ink:#eef1ef; --muted:#a3ada7; --bg:#121513; --card:#1b1f1d; --line:#2c322e; } }
+  :root { --green:#00AB51; --green-soft:#e6f6ee; --ink:#1b1f1d; --muted:#5d6661; --bg:#f7f8f7; --card:#fff; --line:#e3e6e4; }
+  @media (prefers-color-scheme: dark) {
+    :root { --green-soft:#12301f; --ink:#eef1ef; --muted:#a3ada7; --bg:#121513; --card:#1b1f1d; --line:#2c322e; }
+  }
   * { box-sizing: border-box; }
-  body { margin:0; font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif; background:var(--bg); color:var(--ink); }
-  main { max-width:640px; margin:0 auto; padding:48px 16px; }
-  h1 { font-size:1.6rem; margin:0 0 4px; }
-  h1 span { color:var(--green); }
-  p { color:var(--muted); margin:0 0 28px; }
-  a.year { display:flex; justify-content:space-between; align-items:center; padding:18px 20px; margin-bottom:12px;
-    background:var(--card); border:1px solid var(--line); border-left:6px solid var(--green); border-radius:10px;
-    color:inherit; text-decoration:none; }
-  a.year:hover { border-color:var(--green); }
-  a.year b { font-size:1.25rem; }
-  a.year small { color:var(--muted); }
+  body { margin:0; font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif; background:var(--bg); color:var(--ink); }
+  main { max-width:720px; margin:0 auto; padding:48px 16px 64px; }
+  .kicker { color:var(--green); font-weight:700; letter-spacing:.04em; text-transform:uppercase; font-size:.8rem; margin:0 0 6px; }
+  h1 { font-size:2rem; line-height:1.2; margin:0 0 16px; }
+  h2 { font-size:1.15rem; margin:40px 0 12px; }
+  p { margin:0 0 14px; }
+  .lede { font-size:1.12rem; }
+  .muted { color:var(--muted); }
+  .why { background:var(--green-soft); border-left:5px solid var(--green); border-radius:8px; padding:16px 18px; margin:24px 0 8px; }
+  .why p:last-child { margin:0; }
+  ul.qs { margin:0; padding-left:20px; }
+  ul.qs li { margin:4px 0; }
+  .year { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:22px 22px 18px; margin-top:12px; }
+  .year-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:6px; }
+  .year-head b { font-size:1.5rem; }
+  .stats { display:flex; gap:22px; flex-wrap:wrap; margin:10px 0 16px; }
+  .stats div { font-size:.85rem; color:var(--muted); }
+  .stats strong { display:block; font-size:1.35rem; color:var(--ink); }
+  .chapters { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:8px 18px; margin:0 0 18px; padding:0; list-style:none; }
+  .chapters li { font-size:.92rem; }
+  .chapters b { display:block; }
+  .chapters span { color:var(--muted); }
+  a.open { display:inline-block; background:var(--green); color:#fff; font-weight:700; text-decoration:none; padding:11px 18px; border-radius:8px; }
+  a.open:hover { filter:brightness(.95); }
+  .how { font-size:.9rem; color:var(--muted); margin-top:12px; }
+  .next { border:1px dashed var(--line); border-radius:12px; padding:16px 22px; margin-top:12px; color:var(--muted); }
+  footer { margin-top:48px; font-size:.85rem; color:var(--muted); }
 </style>
 </head>
 <body>
 <main>
-  <h1><span>SWAB</span> Event Day Explorer</h1>
-  <p>How each Shop with a Bulldawg event day ran: arrivals, matching, waits and checkout, minute by minute. Counts and times only; no names or contact details.</p>
-  <a class="year" href="2026/"><b>2026</b><small>November 8, 2026 &rarr;</small></a>
+  <p class="kicker">Shop with a Bulldawg &middot; Event Day Explorer</p>
+  <h1>Every event day happens once. This is how we learn from it.</h1>
+  <p class="lede">Each year Shop with a Bulldawg gets one day to do it right: hundreds of kids,
+  mentors and families moving through check-in, matching, shopping and checkout.
+  When it is over, all that is usually left is what people remember.</p>
+
+  <div class="why">
+    <p><strong>Starting in 2026, the day keeps its own records.</strong> The event sheet that ran
+    check-in, matching and checkout logged every step as it happened. This explorer replays that
+    record, minute by minute, so we can see what actually happened, not what we think happened.</p>
+    <p>Each year adds another day to compare, so planning gets a little smarter every year.</p>
+  </div>
+
+  <h2>Questions it helps answer</h2>
+  <ul class="qs">
+    <li>When did kids and mentors really arrive, and did each shift have enough mentors?</li>
+    <li>Where did people wait, for how long, and when did lines form?</li>
+    <li>How long did checkout take once a parent arrived, and what slowed it down?</li>
+    <li>Which stations were busiest, and where did people have to step in?</li>
+  </ul>
+
+  <h2>Event days</h2>
+
+  <section class="year">
+    <div class="year-head"><b>2026</b><span class="muted">Saturday, 8 November 2026 &middot; first year recorded</span></div>
+    <div class="stats">
+      <div><strong>423</strong>kids</div>
+      <div><strong>275</strong>families</div>
+      <div><strong>290</strong>shopping groups</div>
+    </div>
+    <p class="muted">Eight chapters, each one a part of the day:</p>
+    <ul class="chapters">
+      <li><b>The Day at a Glance</b><span>The whole day on one screen, doors to the last family home.</span></li>
+      <li><b>Arrivals and Matching</b><span>Who showed up, when, and how fast they were matched.</span></li>
+      <li><b>Out Shopping</b><span>How long kids were out, and with how many mentors.</span></li>
+      <li><b>Checkout</b><span>Parents arriving, kids released, and the lines in between.</span></li>
+      <li><b>Waits</b><span>Where kids and mentors sat waiting, and for how long.</span></li>
+      <li><b>The Team</b><span>What each station did, and where people stepped in.</span></li>
+      <li><b>Mentors</b><span>How mentors spent their day, from pairing to release.</span></li>
+      <li><b>Shifts and Planning</b><span>The shift plan against when people really came.</span></li>
+    </ul>
+    <a class="open" href="2026/">Open 2026 &rarr;</a>
+    <p class="how">Press play or drag the clock at the bottom to move through the day. Hover anything
+    to see what it is; press <b>i</b> on a tile to learn how to read it. Works best on a laptop.</p>
+  </section>
+
+  <div class="next">2027 will appear here after next year's event day.</div>
+
+  <footer>Counts and times only: no names, phone numbers or contact details are in these pages.
+  Made by SWAB's tech team from the event sheet's records.</footer>
 </main>
 </body>
 </html>
